@@ -167,7 +167,7 @@ class SG_iCal_Freq {
 	 */
 	public function firstOccurrence() {
 		$t = $this->start;
-		if (in_array($t, $this->excluded))
+    if (is_array($this->excluded) && in_array($t, $this->excluded))
 			$t = $this->findNext($t);
 		return $t;
 	}
@@ -288,7 +288,7 @@ class SG_iCal_Freq {
 			if($debug) echo 'Not found' . "\n";
 			$ts = $this->findNext( $this->findStartingPoint( $offset, $this->rules['interval'] ) );
 		}
-		if ($ts && in_array($ts, $this->excluded))
+		if ($ts && is_array($this->excluded) && in_array($ts, $this->excluded))
 			return $this->findNext($ts);
 
 		return $ts;
@@ -484,7 +484,7 @@ class SG_iCal_Freq {
 			return false;
 		}
 
-		if (in_array($t, $this->excluded)) {
+		if (is_array($this->excluded) && in_array($t, $this->excluded)) {
 			return false;
 		}
 
