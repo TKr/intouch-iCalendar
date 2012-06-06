@@ -30,8 +30,8 @@ class SG_iCal_VEvent {
 
 	public $recurrence; //RRULE
 	public $recurex;    //EXRULE
-	public $excluded;   //EXDATE(s)
-	public $added;      //RDATE(s)
+	public $excluded=array();   //EXDATE(s)
+	public $added=array();      //RDATE(s)
 
 	public $freq; //getFrequency() SG_iCal_Freq
 
