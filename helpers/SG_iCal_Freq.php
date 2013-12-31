@@ -55,7 +55,13 @@ class SG_iCal_Freq {
 		}
 
 		if( isset($this->rules['until']) && is_string($this->rules['until']) ) {
-			$this->rules['until'] = strtotime($this->rules['until']);
+			// $this->rules['until'] = strtotime($this->rules['until']);
+
+      $dt = new DateTime($this->rules['until']);
+      $dt = new DateTime($dt->format('Ymd'));
+      $dt->modify('-1 second');
+      $this->rules['until'] = $dt->getTimestamp();
+      // $this->rules['until'] = strtotime($this->rules['until']);
 		}
 		$this->freq = strtolower($this->rules['freq']);
 
