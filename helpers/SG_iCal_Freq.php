@@ -108,6 +108,8 @@ class SG_iCal_Freq {
 	 * @return array
 	 */
 	public function getAllOccurrences() {
+    $cache = null;
+
 		if (empty($this->cache)) {
 			//build cache
 			$next = $this->firstOccurrence();
@@ -181,7 +183,12 @@ class SG_iCal_Freq {
 		//build cache if not done
 		$this->getAllOccurrences();
 		//return last timestamp in cache
-		return end($this->cache);
+    if(is_array($this->cache)){
+      return end($this->cache);
+    }
+    else {
+      return false;
+    }
 	}
 
 	/**
