@@ -212,12 +212,18 @@ class VEvent
      */
     public function isWholeDay()
     {
-        $dur = $this->getDuration();
-        if ($dur > 0 && ($dur % 86400) == 0) {
-            return true;
+        if (isset($this->data['x-microsoft-cdo-alldayevent']) &&
+            strtolower($this->data['x-microsoft-cdo-alldayevent']) === 'true') {
+            $result = true;
+        } else {
+            $dur = $this->getDuration();
+            if ($dur > 0 && ($dur % 86400) == 0) {
+                $result = true;
+            } else {
+                $result = false;
+            }
         }
-
-        return false;
+        return $result;
     }
 
     /**
