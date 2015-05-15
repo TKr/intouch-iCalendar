@@ -1,6 +1,6 @@
 <?php
 
-require_once '../intouch/ical/iCal.php';
+require_once '../src/intouch/ical/ICal.php';
 
 use intouch\ical\iCal;
 use intouch\ical\Query;

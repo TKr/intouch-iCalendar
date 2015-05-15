@@ -1,6 +1,7 @@
 <?php // BUILD: Remove line
 
-namespace intouch\ical;
+namespace TKr\ICal;
+use Exception;
 
 /**
  *
@@ -22,9 +23,9 @@ class Query
      * @param  int                      $end
      * @return intouch\ical\VEvent[]
      */
-    public static function Between(iCal $ical, $start, $end )
+    public static function Between(ICal $ical, $start, $end )
     {
-        if ($ical instanceof iCal) {
+        if ($ical instanceof ICal) {
             $ical = $ical->getEvents();
         }
         if ( !is_array($ical) ) {
@@ -51,7 +52,7 @@ class Query
      */
     public static function After( $ical, $start )
     {
-        if ($ical instanceof iCal) {
+        if ($ical instanceof ICal) {
             $ical = $ical->getEvents();
         }
         if ( !is_array($ical) ) {
@@ -78,7 +79,7 @@ class Query
      */
     public static function Sort( $ical, $column )
     {
-        if ($ical instanceof iCal) {
+        if ($ical instanceof ICal) {
             $ical = $ical->getEvents();
         }
         if ( !is_array($ical) ) {

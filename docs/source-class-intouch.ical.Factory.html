@@ -39,7 +39,7 @@
 				<li><a href="class-intouch.ical.Duration.html">Duration</a></li>
 				<li class="active"><a href="class-intouch.ical.Factory.html">Factory</a></li>
 				<li><a href="class-intouch.ical.Freq.html">Freq</a></li>
-				<li><a href="class-intouch.ical.iCal.html">iCal</a></li>
+				<li><a href="class-intouch.ical.iCal.html">ICal</a></li>
 				<li><a href="class-intouch.ical.Line.html">Line</a></li>
 				<li><a href="class-intouch.ical.Parser.html">Parser</a></li>
 				<li><a href="class-intouch.ical.Query.html">Query</a></li>
@@ -112,11 +112,11 @@
 </span></span><span id="21" class="l"><a class="l" href="#21">21: </a><span class="php-comment">     * vevent =&gt; intouch\ical\VEvent
 </span></span><span id="22" class="l"><a class="l" href="#22">22: </a><span class="php-comment">     * * =&gt; ArrayObject
 </span></span><span id="23" class="l"><a class="l" href="#23">23: </a><span class="php-comment">     *
-</span></span><span id="24" class="l"><a class="l" href="#24">24: </a><span class="php-comment">     * @param $ical intouch\ical\iCal The reader this section/data-pair belongs to
+</span></span><span id="24" class="l"><a class="l" href="#24">24: </a><span class="php-comment">     * @param $ical intouch\ical\ICal The reader this section/data-pair belongs to
 </span></span><span id="25" class="l"><a class="l" href="#25">25: </a><span class="php-comment">     * @param $section string
 </span></span><span id="26" class="l"><a class="l" href="#26">26: </a><span class="php-comment">     * @param intouch\ical\Line[]
 </span></span><span id="27" class="l"><a class="l" href="#27">27: </a><span class="php-comment">     */</span>
-</span><span id="28" class="l"><a class="l" href="#28">28: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_factory" href="#_factory">factory</a>( iCal <span class="php-var">$ical</span>, <span class="php-var">$section</span>, <span class="php-var">$data</span> ) {
+</span><span id="28" class="l"><a class="l" href="#28">28: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_factory" href="#_factory">factory</a>( ICal <span class="php-var">$ical</span>, <span class="php-var">$section</span>, <span class="php-var">$data</span> ) {
 </span><span id="29" class="l"><a class="l" href="#29">29: </a>        <span class="php-keyword1">switch</span>( <span class="php-var">$section</span> ) {
 </span><span id="30" class="l"><a class="l" href="#30">30: </a>            <span class="php-keyword1">case</span> <span class="php-quote">&quot;vcalendar&quot;</span>:
 </span><span id="31" class="l"><a class="l" href="#31">31: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">new</span> VCalendar(Line::Remove_Line(<span class="php-var">$data</span>), <span class="php-var">$ical</span> );

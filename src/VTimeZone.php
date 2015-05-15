@@ -1,6 +1,8 @@
 <?php // BUILD: Remove line
 
-namespace intouch\ical;
+namespace TKr\ICal;
+use DateTime;
+use DateTimeZone;
 
 /**
  * The wrapper for vtimezones. Stores the timezone-id and the setup for

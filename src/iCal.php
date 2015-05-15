@@ -1,22 +1,11 @@
 <?php
 
-namespace intouch\ical;
-
-require_once __DIR__ . '/Factory.php';
-require_once __DIR__ . '/Duration.php';
-require_once __DIR__ . '/Freq.php';
-require_once __DIR__ . '/Line.php';
-require_once __DIR__ . '/Parser.php';
-require_once __DIR__ . '/Query.php';
-require_once __DIR__ . '/Recurrence.php';
-require_once __DIR__ . '/VCalendar.php';
-require_once __DIR__ . '/VEvent.php';
-require_once __DIR__ . '/VTimeZone.php';
+namespace TKr\ICal;
 
 define('SG_ICALREADER_VERSION', '0.8.0');
 
 /**
- * A simple iCal parser.
+ * A simple ICal parser.
  *
  * http://github.com/mfkahn/intouch-iCalendar based on
  * http://github.com/fangel/SG-iCalendar
@@ -28,8 +17,8 @@ define('SG_ICALREADER_VERSION', '0.8.0');
  * A simple example:
  * <code>
  * <?php
- * use intouch\ical\iCal;
- * $ical = new iCal("http://example.com/calendar.ics");
+ * use intouch\ical\ICal;
+ * $ical = new ICal("http://example.com/calendar.ics");
  * foreach ( $ical->getEvents() As $event ) {
  *   // Do stuff with the event $event
  * }
@@ -42,7 +31,7 @@ define('SG_ICALREADER_VERSION', '0.8.0');
  * @author Michael Kahn (C) 2013
  * @license http://creativecommons.org/licenses/by-sa/2.5/dk/deed.en_GB CC-BY-SA-DK
  */
-class iCal
+class ICal
 {
     //objects
     public $information; //VCalendar
@@ -73,7 +62,7 @@ class iCal
     /**
      * Returns the main calendar info. You can then query the returned
      * object with ie getTitle().
-     * @return intouch\ical\VCalendar
+     * @return VCalendar
      */
     public function getCalendarInfo()
     {
@@ -82,7 +71,7 @@ class iCal
 
     /**
      * Sets the calendar info for this calendar
-     * @param intouch\ical\VCalendar $info
+     * @param VCalendar $info
      */
     public function setCalendarInfo( VCalendar $info )
     {
@@ -98,7 +87,7 @@ class iCal
      * returned.
      *
      * @param $tzid string
-     * @return intouch\ical\VTimeZone
+     * @return VTimeZone
      */
     public function getTimeZoneInfo( $tzid = null )
     {
@@ -120,7 +109,7 @@ class iCal
 
     /**
      * Adds a new timezone to this calendar
-     * @param intouch\ical\VTimeZone $tz
+     * @param VTimeZone $tz
      */
     public function addTimeZone( VTimeZone $tz )
     {
@@ -138,7 +127,7 @@ class iCal
 
     /**
      * Adds a event to this calendar
-     * @param intouch\ical\VEvent $event
+     * @param VEvent $event
      */
     public function addEvent( VEvent $event )
     {
@@ -147,7 +136,7 @@ class iCal
 }
 
 /**
- * Legacy - empty subclass of iCal
+ * Legacy - empty subclass of ICal
  * @internal
  */
-class iCalReader extends iCal {}
+class iCalReader extends ICal {}

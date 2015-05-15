@@ -1,13 +1,14 @@
 <?php // BUILD: Remove line
 
-namespace intouch\ical;
+namespace TKr\ICal;
 
 use \ArrayAccess;
+use ArrayIterator;
 use \Countable;
 use \IteratorAggregate;
 
 /**
- * A class for storing a single (complete) line of the iCal file.
+ * A class for storing a single (complete) line of the ICal file.
  * Will find the line-type, the arguments and the data of the file and
  * store them.
  *

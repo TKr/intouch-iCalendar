@@ -1,6 +1,6 @@
 <?php // BUILD: Remove line
 
-namespace intouch\ical;
+namespace TKr\ICal;
 
 /**
  * The wrapper for vevents. Will reveal a unified and simple api for
@@ -41,12 +41,12 @@ class VEvent
     public $data;
 
     /**
-     * Constructs a new intouch\ical\VEvent. Needs the iCal
+     * Constructs a new intouch\ical\VEvent. Needs the ICal
      * supplied so it can query for timezones.
-     * @param intouch\ical\Line[] $data
-     * @param intouch\ical\iCal   $ical
+     * @param Line[] $data
+     * @param ICal   $ical
      */
-    public function __construct($data, iCal $ical)
+    public function __construct($data, ICal $ical)
     {
         if ( isset($data['uid']) ) {
             $this->uid = $data['uid']->getData();
@@ -130,7 +130,6 @@ class VEvent
         if ( isset($this->previous_tz) ) {
             date_default_timezone_set($this->previous_tz);
         }
-
         $this->data = Line::Remove_Line($data);
     }
 
@@ -294,10 +293,10 @@ class VEvent
 
     /**
      * Calculates the timestamp from a DT line.
-     * @param $line intouch\ical\Line
+     * @param $line Line
      * @return int
      */
-    protected function getTimestamp( Line $line, iCal $ical )
+    protected function getTimestamp( Line $line, ICal $ical )
     {
         if ( isset($line['tzid']) ) {
             $this->setLineTimeZone($line);

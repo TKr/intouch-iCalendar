@@ -1,6 +1,7 @@
 <?php // BUILD: Remove line
 
-namespace intouch\ical;
+namespace TKr\ICal;
+use ArrayObject;
 
 /**
  * A simple Factory for converting a section/data pair into the
@@ -22,11 +23,11 @@ class Factory
      * vevent => intouch\ical\VEvent
      * * => ArrayObject
      *
-     * @param $ical intouch\ical\iCal The reader this section/data-pair belongs to
+     * @param $ical ICal The reader this section/data-pair belongs to
      * @param $section string
      * @param intouch\ical\Line[]
      */
-    public static function factory( iCal $ical, $section, $data )
+    public static function factory( ICal $ical, $section, $data )
     {
         switch ($section) {
             case "vcalendar":

@@ -1,6 +1,6 @@
 <?php // BUILD: Remove line
 
-namespace intouch\ical;
+namespace TKr\ICal;
 
 use \DateTime;
 

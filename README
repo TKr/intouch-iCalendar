@@ -1,4 +1,8 @@
-A simple and fast iCal parser.
+------
+Forked
+------
+
+A simple and fast ICal parser.
 -------------------------------------------------------------------------------
 
 This library is based on http://github.com/fangel/SG-iCalendar but
@@ -16,10 +20,10 @@ nothing was changed code-wise from the original fork, except:
 
 A simple example :
 
- use intouch\ical\iCal;
- $ical = new iCal( "./basic.ics" );
+ use intouch\ical\ICal;
+ $ical = new ICal( "./basic.ics" );
  //or
- $ical = new iCal( "http://example.com/calendar.ics" );
+ $ical = new ICal( "http://example.com/calendar.ics" );
  foreach( $ical->getEvents() As $event ) {
    // Do stuff with the event $event
  }
@@ -54,7 +58,7 @@ TODO :
 
 (this is from the original repo, now on my TODO ...)
 
-These iCal keywords are not supported for the moment :
+These ICal keywords are not supported for the moment :
  - RECURRENCE-ID : to move one event from a recurrence
  - EXRULE : to exclude multiple days by a complex rule
 

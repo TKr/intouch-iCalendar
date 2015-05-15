@@ -1,6 +1,6 @@
 <?php // BUILD: Remove line
 
-namespace intouch\ical;
+namespace TKr\ICal;
 
 /**
  * Class Parser
@@ -14,9 +14,9 @@ class Parser
     /**
      * Fetches $url and passes it on to be parsed
      * @param string $url
-     * @param intouch\ical\iCal$ical
+     * @param ICal $ical
      */
-    public static function Parse( $url, iCal $ical )
+    public static function Parse( $url, ICal $ical )
     {
         $content = self::Fetch( $url );
         $content = self::UnfoldLines($content);
@@ -26,9 +26,9 @@ class Parser
     /**
      * Passes a text string on to be parsed
      * @param string            $content
-     * @param intouch\ical\iCal $ical
+     * @param ICal $ical
      */
-    public static function ParseString($content, iCal $ical )
+    public static function ParseString($content, ICal $ical )
     {
         $content = self::UnfoldLines($content);
         self::_Parse( $content, $ical );
@@ -81,7 +81,7 @@ class Parser
     }
 
     /**
-     * Takes the string $content, and creates a array of iCal lines.
+     * Takes the string $content, and creates a array of ICal lines.
      * This includes unfolding multi-line entries into a single line.
      * @param $content string
      */
@@ -104,12 +104,12 @@ class Parser
      * Parses the feed found in content and calls storeSection to store
      * parsed data
      * @param string $content
-     * @param intouch\ical\iCal$ical
+     * @param ICal $ical
      */
-    private static function _Parse( $content, iCal $ical )
+    private static function _Parse( $content, ICal $ical )
     {
         $main_sections = array('vevent', 'vjournal', 'vtodo', 'vtimezone', 'vcalendar');
-        $array_idents = array('exdate','rdate');
+        $array_idents = array('exdate','rdate','attendee');
         $sections = array();
         $section = '';
         $current_data = array();
@@ -137,9 +137,10 @@ class Parser
                         // This section is in the main section
                         if ($section == $s) {
                             // It _is_ the main section else
-                            if (in_array($line->getIdent(), $array_idents))
+                            if (in_array($line->getIdent(), $array_idents)) {
                                 //exdate could appears more that once
                                 $current_data[$s][$line->getIdent()][] = $line;
+                            }
                             else {
                                 $current_data[$s][$line->getIdent()] = $line;
                             }
@@ -159,9 +160,9 @@ class Parser
      * Stores the data in provided intouch\ical\iCalobject
      * @param string $section eg 'vcalender', 'vevent' etc
      * @param string $data
-     * @param intouch\ical\iCal$ical
+     * @param ICal $ical
      */
-    protected static function storeSection( $section, $data, iCal $ical )
+    protected static function storeSection( $section, $data, ICal $ical )
     {
         $data = Factory::Factory($ical, $section, $data);
         switch ($section) {

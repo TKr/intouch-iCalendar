@@ -1,6 +1,6 @@
 <?php // BUILD: Remove line
 
-namespace intouch\ical;
+namespace TKr\ICal;
 
 /**
  * A class to store Frequency-rules in. Will allow a easy way to find the

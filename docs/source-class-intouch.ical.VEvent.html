@@ -39,7 +39,7 @@
 				<li><a href="class-intouch.ical.Duration.html">Duration</a></li>
 				<li><a href="class-intouch.ical.Factory.html">Factory</a></li>
 				<li><a href="class-intouch.ical.Freq.html">Freq</a></li>
-				<li><a href="class-intouch.ical.iCal.html">iCal</a></li>
+				<li><a href="class-intouch.ical.iCal.html">ICal</a></li>
 				<li><a href="class-intouch.ical.Line.html">Line</a></li>
 				<li><a href="class-intouch.ical.Parser.html">Parser</a></li>
 				<li><a href="class-intouch.ical.Query.html">Query</a></li>
@@ -131,12 +131,12 @@
 </span><span id="40" class="l"><a class="l" href="#40"> 40: </a>    <span class="php-keyword1">public</span> <span class="php-var"><a id="$data" href="#$data">$data</a></span>;
 </span><span id="41" class="l"><a class="l" href="#41"> 41: </a>
 </span><span id="42" class="l"><a class="l" href="#42"> 42: </a>    <span class="php-comment">/**
-</span></span><span id="43" class="l"><a class="l" href="#43"> 43: </a><span class="php-comment">     * Constructs a new intouch\ical\VEvent. Needs the iCal
+</span></span><span id="43" class="l"><a class="l" href="#43"> 43: </a><span class="php-comment">     * Constructs a new intouch\ical\VEvent. Needs the ICal
 </span></span><span id="44" class="l"><a class="l" href="#44"> 44: </a><span class="php-comment">     * supplied so it can query for timezones.
 </span></span><span id="45" class="l"><a class="l" href="#45"> 45: </a><span class="php-comment">     * @param intouch\ical\Line[] $data
-</span></span><span id="46" class="l"><a class="l" href="#46"> 46: </a><span class="php-comment">     * @param intouch\ical\iCal $ical
+</span></span><span id="46" class="l"><a class="l" href="#46"> 46: </a><span class="php-comment">     * @param intouch\ical\ICal $ical
 </span></span><span id="47" class="l"><a class="l" href="#47"> 47: </a><span class="php-comment">     */</span>
-</span><span id="48" class="l"><a class="l" href="#48"> 48: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>(<span class="php-var">$data</span>, iCal <span class="php-var">$ical</span>) {
+</span><span id="48" class="l"><a class="l" href="#48"> 48: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>(<span class="php-var">$data</span>, ICal <span class="php-var">$ical</span>) {
 </span><span id="49" class="l"><a class="l" href="#49"> 49: </a>
 </span><span id="50" class="l"><a class="l" href="#50"> 50: </a>        <span class="php-var">$this</span>-&gt;uid = <span class="php-var">$data</span>[<span class="php-quote">'uid'</span>]-&gt;getData();
 </span><span id="51" class="l"><a class="l" href="#51"> 51: </a>        <span class="php-keyword1">unset</span>(<span class="php-var">$data</span>[<span class="php-quote">'uid'</span>]);
@@ -370,7 +370,7 @@
 </span></span><span id="279" class="l"><a class="l" href="#279">279: </a><span class="php-comment">     * @param $line intouch\ical\Line
 </span></span><span id="280" class="l"><a class="l" href="#280">280: </a><span class="php-comment">     * @return int
 </span></span><span id="281" class="l"><a class="l" href="#281">281: </a><span class="php-comment">     */</span>
-</span><span id="282" class="l"><a class="l" href="#282">282: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_getTimestamp" href="#_getTimestamp">getTimestamp</a>( Line <span class="php-var">$line</span>, iCal <span class="php-var">$ical</span> ) {
+</span><span id="282" class="l"><a class="l" href="#282">282: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_getTimestamp" href="#_getTimestamp">getTimestamp</a>( Line <span class="php-var">$line</span>, ICal <span class="php-var">$ical</span> ) {
 </span><span id="283" class="l"><a class="l" href="#283">283: </a>
 </span><span id="284" class="l"><a class="l" href="#284">284: </a>        <span class="php-keyword1">if</span>( <span class="php-keyword1">isset</span>(<span class="php-var">$line</span>[<span class="php-quote">'tzid'</span>]) ) {
 </span><span id="285" class="l"><a class="l" href="#285">285: </a>            <span class="php-var">$this</span>-&gt;setLineTimeZone(<span class="php-var">$line</span>);

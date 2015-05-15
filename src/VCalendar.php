@@ -1,7 +1,8 @@
 <?php
 
-namespace intouch\ical;
+namespace TKr\ICal;
 
+use ArrayIterator;
 use \IteratorAggregate;
 
 /**

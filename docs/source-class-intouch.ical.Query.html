@@ -39,7 +39,7 @@
 				<li><a href="class-intouch.ical.Duration.html">Duration</a></li>
 				<li><a href="class-intouch.ical.Factory.html">Factory</a></li>
 				<li><a href="class-intouch.ical.Freq.html">Freq</a></li>
-				<li><a href="class-intouch.ical.iCal.html">iCal</a></li>
+				<li><a href="class-intouch.ical.iCal.html">ICal</a></li>
 				<li><a href="class-intouch.ical.Line.html">Line</a></li>
 				<li><a href="class-intouch.ical.Parser.html">Parser</a></li>
 				<li class="active"><a href="class-intouch.ical.Query.html">Query</a></li>
@@ -107,13 +107,13 @@
 </span></span><span id="16" class="l"><a class="l" href="#16">16: </a><span class="php-comment">     *
 </span></span><span id="17" class="l"><a class="l" href="#17">17: </a><span class="php-comment">     * Note that the events returned needs only slightly overlap.
 </span></span><span id="18" class="l"><a class="l" href="#18">18: </a><span class="php-comment">     *
-</span></span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-comment">     * @param intouch\ical\iCal |array $ical The calendar to query
+</span></span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-comment">     * @param intouch\ical\ICal |array $ical The calendar to query
 </span></span><span id="20" class="l"><a class="l" href="#20">20: </a><span class="php-comment">     * @param int $start
 </span></span><span id="21" class="l"><a class="l" href="#21">21: </a><span class="php-comment">     * @param int $end
 </span></span><span id="22" class="l"><a class="l" href="#22">22: </a><span class="php-comment">     * @return intouch\ical\VEvent[]
 </span></span><span id="23" class="l"><a class="l" href="#23">23: </a><span class="php-comment">     */</span>
-</span><span id="24" class="l"><a class="l" href="#24">24: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_Between" href="#_Between">Between</a>(iCal <span class="php-var">$ical</span>, <span class="php-var">$start</span>, <span class="php-var">$end</span> ) {
-</span><span id="25" class="l"><a class="l" href="#25">25: </a>        <span class="php-keyword1">if</span>( <span class="php-var">$ical</span> <span class="php-keyword1">instanceof</span> iCal ) {
+</span><span id="24" class="l"><a class="l" href="#24">24: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_Between" href="#_Between">Between</a>(ICal <span class="php-var">$ical</span>, <span class="php-var">$start</span>, <span class="php-var">$end</span> ) {
+</span><span id="25" class="l"><a class="l" href="#25">25: </a>        <span class="php-keyword1">if</span>( <span class="php-var">$ical</span> <span class="php-keyword1">instanceof</span> ICal ) {
 </span><span id="26" class="l"><a class="l" href="#26">26: </a>            <span class="php-var">$ical</span> = <span class="php-var">$ical</span>-&gt;getEvents();
 </span><span id="27" class="l"><a class="l" href="#27">27: </a>        }
 </span><span id="28" class="l"><a class="l" href="#28">28: </a>        <span class="php-keyword1">if</span>( !<span class="php-keyword2">is_array</span>(<span class="php-var">$ical</span>) ) {
@@ -133,12 +133,12 @@
 </span><span id="42" class="l"><a class="l" href="#42">42: </a>    <span class="php-comment">/**
 </span></span><span id="43" class="l"><a class="l" href="#43">43: </a><span class="php-comment">     * Returns all events from the calendar after a given timestamp
 </span></span><span id="44" class="l"><a class="l" href="#44">44: </a><span class="php-comment">     *
-</span></span><span id="45" class="l"><a class="l" href="#45">45: </a><span class="php-comment">     * @param intouch\ical\iCal|array $ical The calendar to query
+</span></span><span id="45" class="l"><a class="l" href="#45">45: </a><span class="php-comment">     * @param intouch\ical\ICal|array $ical The calendar to query
 </span></span><span id="46" class="l"><a class="l" href="#46">46: </a><span class="php-comment">     * @param int $start
 </span></span><span id="47" class="l"><a class="l" href="#47">47: </a><span class="php-comment">     * @return intouch\ical\VEvent[]
 </span></span><span id="48" class="l"><a class="l" href="#48">48: </a><span class="php-comment">     */</span>
 </span><span id="49" class="l"><a class="l" href="#49">49: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_After" href="#_After">After</a>( <span class="php-var">$ical</span>, <span class="php-var">$start</span> ) {
-</span><span id="50" class="l"><a class="l" href="#50">50: </a>        <span class="php-keyword1">if</span>( <span class="php-var">$ical</span> <span class="php-keyword1">instanceof</span> iCal ) {
+</span><span id="50" class="l"><a class="l" href="#50">50: </a>        <span class="php-keyword1">if</span>( <span class="php-var">$ical</span> <span class="php-keyword1">instanceof</span> ICal ) {
 </span><span id="51" class="l"><a class="l" href="#51">51: </a>            <span class="php-var">$ical</span> = <span class="php-var">$ical</span>-&gt;getEvents();
 </span><span id="52" class="l"><a class="l" href="#52">52: </a>        }
 </span><span id="53" class="l"><a class="l" href="#53">53: </a>        <span class="php-keyword1">if</span>( !<span class="php-keyword2">is_array</span>(<span class="php-var">$ical</span>) ) {
@@ -158,12 +158,12 @@
 </span></span><span id="67" class="l"><a class="l" href="#67">67: </a><span class="php-comment">     * Sorts the events from the calendar after the specified column.
 </span></span><span id="68" class="l"><a class="l" href="#68">68: </a><span class="php-comment">     * Column can be all valid entires that getProperty can return.
 </span></span><span id="69" class="l"><a class="l" href="#69">69: </a><span class="php-comment">     * So stuff like uid, start, end, summary etc.
-</span></span><span id="70" class="l"><a class="l" href="#70">70: </a><span class="php-comment">     * @param intouch\ical\iCal|array $ical The calendar to query
+</span></span><span id="70" class="l"><a class="l" href="#70">70: </a><span class="php-comment">     * @param intouch\ical\ICal|array $ical The calendar to query
 </span></span><span id="71" class="l"><a class="l" href="#71">71: </a><span class="php-comment">     * @param string $column
 </span></span><span id="72" class="l"><a class="l" href="#72">72: </a><span class="php-comment">     * @return intouch\ical\VEvent[]
 </span></span><span id="73" class="l"><a class="l" href="#73">73: </a><span class="php-comment">     */</span>
 </span><span id="74" class="l"><a class="l" href="#74">74: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <span class="php-keyword2">Sort</span>( <span class="php-var">$ical</span>, <span class="php-var">$column</span> ) {
-</span><span id="75" class="l"><a class="l" href="#75">75: </a>        <span class="php-keyword1">if</span>( <span class="php-var">$ical</span> <span class="php-keyword1">instanceof</span> iCal ) {
+</span><span id="75" class="l"><a class="l" href="#75">75: </a>        <span class="php-keyword1">if</span>( <span class="php-var">$ical</span> <span class="php-keyword1">instanceof</span> ICal ) {
 </span><span id="76" class="l"><a class="l" href="#76">76: </a>            <span class="php-var">$ical</span> = <span class="php-var">$ical</span>-&gt;getEvents();
 </span><span id="77" class="l"><a class="l" href="#77">77: </a>        }
 </span><span id="78" class="l"><a class="l" href="#78">78: </a>        <span class="php-keyword1">if</span>( !<span class="php-keyword2">is_array</span>(<span class="php-var">$ical</span>) ) {
