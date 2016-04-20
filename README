@@ -1,5 +1,7 @@
 make dev - install all dev required packages and composer
-make test - runa all tests
+make test - run all tests
+make test_blocks - run all blocks tests
+make test_helpers - run all helpers tests
 make get_composer - upgrade composer version
 
 ------

@@ -8,8 +8,11 @@
          bootstrap="bootstrap.php"
         >
     <testsuites>
-        <testsuite name="Tests">
-            <directory>../src/Tests</directory>
+        <testsuite name="blocks">
+            <directory>../src/Tests/blocks</directory>
+        </testsuite>
+        <testsuite name="helpers">
+            <directory>../src/Tests/helpers</directory>
         </testsuite>
     </testsuites>
 </phpunit>
