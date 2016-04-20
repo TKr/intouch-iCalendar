@@ -1,6 +1,12 @@
+make dev - install all dev required packages and composer
+make test - runa all tests
+make get_composer - upgrade composer version
+
 ------
-Forked
+This code is forked from original one, below is old, deprecated README
 ------
+
+
 
 A simple and fast ICal parser.
 -------------------------------------------------------------------------------
