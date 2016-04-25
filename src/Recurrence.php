@@ -22,7 +22,7 @@ class Recurrence
 
     protected $freq;
 
-    protected $until;
+    public $until;
     protected $count;
 
     protected $interval;

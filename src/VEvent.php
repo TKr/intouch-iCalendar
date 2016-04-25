@@ -46,7 +46,7 @@ class VEvent
      * @param Line[] $data
      * @param ICal   $ical
      */
-    public function __construct($data, ICal $ical)
+    public function __construct($data, ICal $ical, $yearsLimit = 3)
     {
         if ( isset($data['uid']) ) {
             $this->uid = $data['uid']->getData();
@@ -111,7 +111,7 @@ class VEvent
                 $until = $this->freq->lastOccurrence($this->start);
             } else {
                 //forever... limit to 3 years
-                $this->recurrence->setUntil('+3 years');
+                $this->recurrence->setUntil('+' . $yearsLimit .' years');
                 $until = $this->recurrence->getUntil();
             }
             //date_default_timezone_set( xx ) needed ?;
@@ -137,11 +137,11 @@ class VEvent
      * Returns the Event Occurrences Iterator (if recurrence set)
      * @return intouch\ical\Freq
      */
-    public function getFrequency()
+    public function getFrequency($until = null)
     {
         if (! isset($this->freq)) {
             if ( isset($this->recurrence) ) {
-                $this->freq = new Freq($this->recurrence->rrule, $this->start, $this->excluded, $this->added);
+                $this->freq = new Freq($this->recurrence, $this->start, $this->excluded, $this->added, $until);
             }
         }
 

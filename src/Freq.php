@@ -35,7 +35,7 @@ class Freq
     protected $start = 0;
     protected $freq = '';
 
-    protected $excluded; //EXDATE
+    protected $excluded = array(); //EXDATE
     protected $added;    //RDATE
 
     protected $cache; // getAllOccurrences()
@@ -47,18 +47,26 @@ class Freq
      * @param $excluded array of int (timestamps), see EXDATE documentation
      * @param $added array of int (timestamps), see RDATE documentation
      */
-    public function __construct( $rule, $start, $excluded=array(), $added=array())
+    public function __construct($recurrence, $start, $excluded=array(), $added=array(), $until = null)
     {
         $this->start = $start;
         $this->excluded = array();
+        $rule = $recurrence->rrule;
 
         $rules = array();
-        foreach ( explode(';', $rule) AS $v) {
+        foreach ( explode(';', $rule) as $v) {
             list($k, $v) = explode('=', $v);
             $this->rules[ strtolower($k) ] = $v;
         }
 
-        if ( isset($this->rules['until']) && is_string($this->rules['until']) ) {
+        if (!isset($this->rules['until'])) {
+            if (!$until && isset($recurrence->until)) {
+                $this->rules['until'] = $recurrence->until;
+            } elseif($until) {
+                $this->rules['until'] = $until;
+            }
+        }
+        if (isset($this->rules['until']) && is_string($this->rules['until']) ) {
             $this->rules['until'] = strtotime($this->rules['until']);
         }
         $this->freq = strtolower($this->rules['freq']);
@@ -110,14 +118,16 @@ class Freq
      * Returns all timestamps array(), build the cache if not made before
      * @return array
      */
-    public function getAllOccurrences()
+    public function getAllOccurrences($limit = 100, $offset = false)
     {
         if (empty($this->cache)) {
             //build cache
-            $next = $this->firstOccurrence();
-            while ($next) {
+            $next = $this->firstOccurrence($offset);
+            $c = 0;
+            while ($next && $c < $limit) {
                 $cache[] = $next;
                 $next = $this->findNext($next);
+                $c++;
             }
             if (!empty($this->added)) {
                 $cache = $cache + $this->added;
@@ -173,9 +183,12 @@ class Freq
      * Finds the first occurrence of the rule.
      * @return int timestamp
      */
-    public function firstOccurrence()
+    public function firstOccurrence($offset = false)
     {
-        $t = $this->start;
+        $t = ($offset !== false) ? $offset : $this->start;
+        if (!is_array($this->excluded)) {
+            $this->excluded = (array)$this->excluded;
+        }
         if (in_array($t, $this->excluded))
             $t = $this->findNext($t);
 
@@ -394,6 +407,7 @@ class Freq
      */
     private function ruleByday($rule, $t)
     {
+        $rule = str_replace('"', '', $rule);
         $dir = ($rule{0} == '-') ? -1 : 1;
         $dir_t = ($dir == 1) ? 'next' : 'last';
 
@@ -513,6 +527,9 @@ class Freq
             return false;
         }
 
+        if (!is_array($this->excluded)) {
+            $this->excluded = (array)$this->excluded;
+        }
         if (in_array($t, $this->excluded)) {
             return false;
         }
