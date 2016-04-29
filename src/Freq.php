@@ -185,6 +185,9 @@ class Freq
      */
     public function firstOccurrence($offset = false)
     {
+        if (!is_array($this->excluded)) {
+            $this->excluded = (array)$this->excluded;
+        }
         $t = ($offset !== false) ? $offset : $this->start;
         if (!is_array($this->excluded)) {
             $this->excluded = (array)$this->excluded;
@@ -239,7 +242,9 @@ class Freq
                     return $ts;
             }
         }
-
+        if (!is_array($this->excluded)) {
+            $this->excluded = (array)$this->excluded;
+        }
         $debug = false;
 
         //make sure the offset is valid
