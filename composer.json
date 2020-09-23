@@ -10,5 +10,6 @@
     "autoload": {
       "psr-4": {"TKr\\ICal\\": "src/"}
     },
+    "version": "1.0.1",
     "license": "CC-BY-SA-DK"
 }
